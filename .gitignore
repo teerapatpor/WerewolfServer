@@ -1,9 +1,9 @@
 project.lock.json
 DNWS260.code-workspace
-Dockerfile
 bin/
 obj/
 Migrations/
 *.db
 .vs/DNWS/v15/.suo
 .vscode/settings.json
+werewolf.db-journal

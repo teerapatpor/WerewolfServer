@@ -18,6 +18,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.Serialization;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace DNWS.Werewolf 
 { 
@@ -50,6 +51,7 @@ namespace DNWS.Werewolf
         /// Game status in the system
         /// </summary>
         /// <value>Game status in the system</value>
+        [JsonConverter(typeof(StringEnumConverter))]
         public enum StatusEnum
         { 
             /// <summary>
@@ -78,6 +80,7 @@ namespace DNWS.Werewolf
         [DataMember(Name="status")]
         public StatusEnum? Status { get; set; }
 
+        [JsonConverter(typeof(StringEnumConverter))]
         public enum PeriodEnum
         { 
             /// <summary>
@@ -100,19 +103,21 @@ namespace DNWS.Werewolf
         }
         [DataMember(Name="period")]
         public PeriodEnum? Period { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
         public enum OutcomeEnum
         {
-            [EnumMember(Value = "villagerwin")]
+            [EnumMember(Value = "villager win")]
             VillagerWin = 1,
-            [EnumMember(Value = "werewolfwin")]
+            [EnumMember(Value = "werewolf win")]
             WerewolfWin = 2,
-            [EnumMember(Value = "foolwin")]
+            [EnumMember(Value = "fool win")]
             FoolWin = 3,
-            [EnumMember(Value = "headhunterwin")]
+            [EnumMember(Value = "headhunter win")]
             HeadHunterWin = 4,
-            [EnumMember(Value = "serialkillerwin")]
+            [EnumMember(Value = "serialkiller win")]
             SerialKillerWin = 5,
-            [EnumMember(Value = "nowin")]
+            [EnumMember(Value = "no win")]
             NoWin = 6,
         }
         [DataMember(Name="outcome")]
